@@ -1,19 +1,17 @@
+var containerText = document.getElementsByClassName("container");
 var todaysDate = document.querySelector("#currentDay");
 var currentDate = moment();
 
 todaysDate.textContent = currentDate.format("dddd DD, YYYY");
 
-$(".row").mouseenter(function(){
-    var time = $(this).text().trim();
+var auditText = function() {
+    // set the background color for timeblocks acording to the past
+    $(containerText).find(".morning").addClass("past");
 
-    var hour = moment(time, "L").set("hour", 12);
+    $(containerText).find(".lunch").addClass("present");
 
-    if (moment().isAfter(hour)) {
-        $(this).find("textarea").addClass("future");
-    } else if (moment().isBefore(hour)) {
-        $(this).find("textarea").addClass("past")
-    } else {
-        $(this).find("textarea").addClass("present")
-    }
-})
+    $(containerText).find(".afternoon").addClass("future");
 
+};
+
+auditText();
