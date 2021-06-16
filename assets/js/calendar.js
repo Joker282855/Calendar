@@ -14,4 +14,11 @@ var auditText = function() {
 
 };
 
+$(".container").on("click", "textarea", function() {
+  var text = $(this).val();
+  console.log(text);
+});
+
+
+
 auditText();
