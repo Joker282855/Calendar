@@ -15,8 +15,13 @@ var auditText = function() {
 };
 
 $(".container").on("click", "textarea", function() {
-  var text = $(this).val();
-  console.log(text);
+  var area = $(this);
+  area.trigger("focus");
+});
+
+$(".container").on("blur", "textarea", function() {
+  var entry = $(this).val();
+  console.log(entry);
 });
 
 
