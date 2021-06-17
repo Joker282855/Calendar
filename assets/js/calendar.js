@@ -1,6 +1,5 @@
 var eventList = []; 
 
-var buttonClickInfo = document.querySelector("#btn");
 var textEventInfo = document.querySelector("col-11");
 var containerText = document.getElementsByClassName("container");
 var todaysDate = document.querySelector("#currentDay");
@@ -18,9 +17,9 @@ var auditText = function() {
 
 };
 
-var buttonClickHandler = function(entry) {  
-  console.log(entry);
-};
+var savedEvents = function() {
+  localStorage.setItem("eventList", JSON.stringify(eventList));
+}
 
 $(".container").on("click", "textarea", function() {
   var area = $(this);
@@ -29,10 +28,17 @@ $(".container").on("click", "textarea", function() {
 
 $(".container").on("blur", "textarea", function() {
   var entry = $(this).val();
-  console.log(entry);
+
+  var eventDataObj = {
+    text: entry
+  }
+  console.log(eventDataObj);
+
+  eventList.push(eventDataObj);
+
+  savedEvents();
 });
 
 auditText();
 
-buttonClickInfo.addEventListener("click", buttonClickHandler);
 
