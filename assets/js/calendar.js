@@ -1,3 +1,5 @@
+var buttonClickInfo = document.querySelector("#btn");
+var textEventInfo = document.querySelector("col-11");
 var containerText = document.getElementsByClassName("container");
 var todaysDate = document.querySelector("#currentDay");
 var currentDate = moment();
@@ -14,6 +16,11 @@ var auditText = function() {
 
 };
 
+var buttonClickHandler = function(textEventInfo) {
+  var event = textEventInfo
+  console.log(event);
+};
+
 $(".container").on("click", "textarea", function() {
   var area = $(this);
   area.trigger("focus");
@@ -24,6 +31,7 @@ $(".container").on("blur", "textarea", function() {
   console.log(entry);
 });
 
-
-
 auditText();
+
+buttonClickInfo.addEventListener("click", buttonClickHandler);
+
