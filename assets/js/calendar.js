@@ -1,3 +1,5 @@
+var eventList = []; 
+
 var buttonClickInfo = document.querySelector("#btn");
 var textEventInfo = document.querySelector("col-11");
 var containerText = document.getElementsByClassName("container");
@@ -16,9 +18,8 @@ var auditText = function() {
 
 };
 
-var buttonClickHandler = function(textEventInfo) {
-  var event = textEventInfo
-  console.log(event);
+var buttonClickHandler = function(entry) {  
+  console.log(entry);
 };
 
 $(".container").on("click", "textarea", function() {
