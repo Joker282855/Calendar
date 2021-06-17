@@ -19,7 +19,7 @@ var auditText = function() {
 
 var savedEvents = function() {
   localStorage.setItem("eventList", JSON.stringify(eventList));
-}
+};
 
 $(".container").on("click", "textarea", function() {
   var area = $(this);
