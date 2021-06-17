@@ -1,3 +1,6 @@
+var eventList = []; 
+
+var textEventInfo = document.querySelector("col-11");
 var containerText = document.getElementsByClassName("container");
 var todaysDate = document.querySelector("#currentDay");
 var currentDate = moment();
@@ -14,11 +17,28 @@ var auditText = function() {
 
 };
 
+var savedEvents = function() {
+  localStorage.setItem("eventList", JSON.stringify(eventList));
+}
+
 $(".container").on("click", "textarea", function() {
-  var text = $(this).val();
-  console.log(text);
+  var area = $(this);
+  area.trigger("focus");
 });
 
+$(".container").on("blur", "textarea", function() {
+  var entry = $(this).val();
 
+  var eventDataObj = {
+    text: entry
+  }
+  console.log(eventDataObj);
+
+  eventList.push(eventDataObj);
+
+  savedEvents();
+});
 
 auditText();
+
+
