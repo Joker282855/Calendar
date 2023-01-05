@@ -26,3 +26,6 @@ The technologies I used were HTML, CSS, Javascript, Bootstrap, and JQUERY
 
 ## Screenshot
 <img src="./images/Screenshot.jpg" />
+
+## Contributors
+Josh Jackson
